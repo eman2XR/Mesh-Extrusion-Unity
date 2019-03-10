@@ -69,10 +69,11 @@ public class ExtrudeMesh : MonoBehaviour {
         {
                     finalSections[i] = worldToLocal * sections[i].matrix;
         }
-            
-            // Rebuild the extrusion mesh	
-            MeshExtrusion.ExtrudeMesh(srcMesh, GetComponent<MeshFilter>().mesh, finalSections, precomputedEdges, invertFaces);
-        
+
+        // Rebuild the extrusion mesh	
+        MeshExtrusion.ExtrudeMesh(srcMesh, GetComponent<MeshFilter>().mesh, finalSections, precomputedEdges, invertFaces, buildCaps);
+        //
+        GetComponent<MeshFilter>().mesh.RecalculateTangents();
     }
     
 }
